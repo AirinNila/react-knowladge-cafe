@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { FaBookmark } from 'react-icons/fa'
 
-const Blog = ({blog, handleBookMark}) => {
+const Blog = ({blog, handleBookMark, handleReadingTime}) => {
     //console.log(handleBookMark)
     const {cover,author, title, author_img, posted_date, reading_time, hashtags} = blog;
 
@@ -27,7 +27,7 @@ const Blog = ({blog, handleBookMark}) => {
                 <h3 className='md:text-3xl'>{title}</h3>
                 <p>{hashtags}</p>
                 <div>
-                <button className='btn'>Mark as Read</button>
+                <button onClick={() => handleReadingTime(reading_time)} className='btn text-[#6047EC]'>Mark as Read</button>
                 </div>
             
             </div>

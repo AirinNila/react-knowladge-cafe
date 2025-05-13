@@ -7,9 +7,16 @@ import Header from './component/header/header'
 
 function App() {
   const [bookMarks , setBookMark] = useState([])
+  const [readingTime, setReadingTime] = useState(0)
+
+  const handleReadingTime = time => {
+   // console.log(time)
+    const newReadingTime = parseInt(readingTime) + parseInt(time)
+    setReadingTime(newReadingTime)
+  }
 
   const handleBookMark = blog => {
-    console.log(blog)
+    //console.log(blog)
     const newBookmark = [...bookMarks, blog]
     setBookMark(newBookmark)
   }
@@ -21,8 +28,8 @@ function App() {
      
     <Header></Header>
     <div className='md:flex container mx-auto'>
-      <Blogs handleBookMark={handleBookMark}></Blogs>
-      <BookMarks bookMarks={bookMarks}></BookMarks>
+      <Blogs handleBookMark={handleBookMark} handleReadingTime={handleReadingTime}></Blogs>
+      <BookMarks bookMarks={bookMarks} readingTime={readingTime}></BookMarks>
     </div>
     
     </>
