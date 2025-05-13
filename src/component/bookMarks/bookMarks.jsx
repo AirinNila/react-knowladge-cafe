@@ -1,9 +1,22 @@
 import React from 'react';
+import BookMark from '../bookmark/bookMark';
 
-const BookMarks = () => {
+const BookMarks = ({bookMarks}) => {
     return (
-        <div className='md:w-1/3'>
-            <h3>BookMarks</h3>
+        <div className='md:w-1/3 mt-4'>
+            <div className='flex flex-col gap-4'>
+            <div className='p-3 bg-[#6047EC1A] border-2 border-[#6047EC] text-[#6047EC] rounded-lg'>
+                <h3>Spend time on read: 0 min</h3>
+            </div>
+            <div className='flex flex-col gap-4 bg-[#1111110D] rounded-lg p-4 justify-center'>
+                <p className='text-2xl font-bold text-start'>Bookmarks Blogs: {bookMarks.length}</p>
+                <div className=' flex flex-col gap-3'>
+                    {
+                        bookMarks.map(blog => <BookMark key= {blog.id} blog = {blog}></BookMark>)
+                    }
+                </div>
+            </div>
+            </div>
         </div>
     );
 };

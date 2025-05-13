@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Blog from '../blog/blog';
 
-const Blogs = () => {
+const Blogs = ({handleBookMark}) => {
+    
     const [blogsData, setBlogsData] = useState([])
 
     useEffect( () => {
@@ -11,7 +13,19 @@ const Blogs = () => {
 
     return (
         <div className='md:w-2/3'>
-            <h2>Blogs: {blogsData.length}</h2>
+            
+            <div className='flex flex-col gap-6'>
+            {
+                blogsData.map(blog => 
+                <Blog 
+                key={blog.id}
+                handleBookMark={handleBookMark} 
+                blog={blog}
+                >
+                
+                </Blog>)
+            }
+            </div>
         </div>
     );
 };
